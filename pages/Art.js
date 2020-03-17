@@ -33,7 +33,7 @@ export default function Shop({artwork}) {
 
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
-  const res = await fetch('http://localhost:8282/artwork')
+  const res = await fetch('http://localhost:3000/api/artwork')
   const artwork = await res.json()
 
   // By returning { props: posts }, the Blog component

@@ -30,7 +30,7 @@ export default function Shop({artwork}) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:8282/shopworks')
+  const res = await fetch('http://localhost:3000/api/Shopwork')
   const artwork = await res.json()
 
 
