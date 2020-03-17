@@ -17,7 +17,7 @@ function createCard(work) {
 
 export default function Shop({artwork}) {
   return (
-    <Layout title="Shop">
+    <Layout>
       <p>This is the Shop page</p>
 
       <div className="container-fluid d-inline-flex p-2 bd-highlight">

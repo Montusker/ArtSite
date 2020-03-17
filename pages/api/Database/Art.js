@@ -1,3 +1,5 @@
+//Schema and Model to connect and find from the database.
+
 const mongoose = require("mongoose");
 
 const artSchema = new mongoose.Schema({

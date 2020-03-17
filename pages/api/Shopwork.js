@@ -13,3 +13,5 @@ export default async (req, res) => {
       }
     });
 };
+
+//fetches all arts that have not been sold or are not for sale.

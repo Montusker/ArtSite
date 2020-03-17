@@ -15,11 +15,9 @@ function createCard(work) {
   );
 }
 
-
-
 export default function Shop({artwork}) {
   return (
-    <Layout title="Artwork">
+    <Layout>
       <p>This is the Artwork page</p>
 
       <div className="container-fluid d-inline-flex p-2 bd-highlight">
@@ -32,12 +30,9 @@ export default function Shop({artwork}) {
 }
 
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
   const res = await fetch('http://localhost:3000/api/artwork')
   const artwork = await res.json()
 
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
       artwork,

@@ -1,3 +1,5 @@
+//Connects to databae only if existing connection is not present
+
 const mongoose = require("mongoose");
 
 export default async () => {

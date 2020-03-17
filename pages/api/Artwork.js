@@ -13,3 +13,6 @@ export default async (req, res) => {
       }
     });
 };
+
+
+//fetches all arts
