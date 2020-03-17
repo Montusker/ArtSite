@@ -7,6 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 export default async (req, res) => {
+  console.log(req.body);
   const { id, amount } = req.body;
 
   try {
@@ -16,7 +17,7 @@ export default async (req, res) => {
       description: "Test product",
       payment_method: id,
       confirm: true
-    });
+      });
 
     console.log(payment);
 
