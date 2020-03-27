@@ -3,7 +3,7 @@
 const mongoose = require("mongoose");
 
 const artSchema = new mongoose.Schema({
-  id: String,
+  id: Number,
   description: String,
   path: String,
   size: String,

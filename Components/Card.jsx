@@ -4,27 +4,47 @@ import MoreInfo from "./MoreInfo";
 
 
 function Card(props) {
+
+  const [isCircle, setCircle] = React.useState(false);
+
+
+function handleLoad() {
+  if (props.path === "images/IMG_0006.jpg"){
+      setCircle(true);
+    }
+    else {
+      setCircle(false);
+    }
+}
+
+
   return (
 
-    <div className="col-3">
-    <Popup modal trigger={<button><img className="thumbnail" src={props.path} /></button>}>
+    <div onResize={handleLoad} style={{ borderRadius: isCircle ? "50%" : "0" }}>
+    <Popup modal trigger={<img src={props.path}  height={props.photo.height} width={ props.photo.width}/>}>
     <MoreInfo
-      key={props.id}
+      _id={props._id}
       id={props.id}
-      description={props.description}
       path={props.path}
       size={props.size}
       price={props.price}
       sold={props.sold}
     />
     </Popup>
-     <style jsx>{`
-       .thumbnail {
-         width: 100%;
-         height: 100%;
-       }
-       `}</style>
+    <style jsx>{`
+      div {
+      margin: 30px;
+      padding: auto;
+      justify-self: center;
+      align-self: center;
+      -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+      box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      `}</style>
     </div>
+
 
   );
 }

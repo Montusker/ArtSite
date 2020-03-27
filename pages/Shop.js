@@ -1,30 +1,45 @@
 import Card from "../Components/Card";
 import fetch from 'node-fetch'
 import Layout from "../components/Layout";
-
-function createCard(work) {
-  return (
-    <Card
-      key={work.id}
-      id={work.id}
-      path={work.path}
-      size={work.size}
-      price={work.price}
-      sold={work.sold}
-    />
-  );
-}
+import { render } from "react-dom";
+import Gallery from "react-photo-gallery";
 
 export default function Shop({artwork}) {
+  const imageRenderer = React.useCallback(
+    ({ index, left, top, key, photo }) => (
+      <Card
+        _id={artwork[index]._id}
+        id={artwork[index].IDNumber}
+        path={artwork[index].src}
+        size={artwork[index].size}
+        price={artwork[index].price}
+        sold={artwork[index].sold}
+        key={key}
+        margin={"2px"}
+        index={index}
+        photo={photo}
+        left={left}
+        top={top}
+      />
+      )
+    );
+
   return (
     <Layout>
+    <div>
       <p>This is the Shop page</p>
-
-      <div className="container-fluid d-inline-flex p-2 bd-highlight">
-        <div className="row rows-cols-4">
-        {artwork.map(createCard)}
-        </div>
+      <Gallery photos={artwork} renderImage={imageRenderer} className="test" />
       </div>
+      <style jsx>{`
+        div {
+        margin: 0 10%;
+
+        }
+        .test {
+          justify-content: space-evenly;
+        }
+        `}</style>
+
     </Layout>
   );
 }

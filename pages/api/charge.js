@@ -1,14 +1,26 @@
 import Stripe from "stripe";
-
+import ArtDB from './Database/ArtDB';
+import Art from './Database/Art';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 
-
-
 export default async (req, res) => {
-  console.log(req.body);
-  const { id, amount } = req.body;
+  await ArtDB();
+
+  let { id, amount, item_id} = req.body;
+
+
+
+
+  Art.findOne({ path: item_id }, (err, foundItems)=> {
+      if (err) {
+        console.log(err);
+      } else {
+        amount = foundItems.price*100;
+      }
+    });
+
 
   try {
     const payment = await stripe.paymentIntents.create({
@@ -19,7 +31,6 @@ export default async (req, res) => {
       confirm: true
       });
 
-    console.log(payment);
 
     return res.status(200).json({
       confirm: "abc123"

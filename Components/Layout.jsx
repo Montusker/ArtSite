@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Header from "./Header";
 
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
 
 const Layout = ({ children, title }) => {
   return (
@@ -10,10 +13,10 @@ const Layout = ({ children, title }) => {
         <title>KellyPaigeArt{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-		      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet" />
       </Head>
       <Header />
-      {children}
+      <Elements stripe={stripePromise}>{children}</Elements>
     </>
   );
 };

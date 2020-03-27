@@ -1,7 +1,7 @@
 {
-  "name": "Website",
+  "name": "KellyPaigeArt",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"A site for my sister\"",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -9,18 +9,21 @@
     "start": "next start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Joe Adamo <josephaadamo67@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "@stripe/react-stripe-js": "^1.0.3",
     "@stripe/stripe-js": "^1.1.0",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.9.5",
     "next": "^9.3.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-photo-gallery": "^8.0.0",
     "reactjs-popup": "^1.5.0",
     "stripe": "^8.32.0"
-  }
+  },
+  "repository": "https://github.com/Montusker/ArtSite"
 }
