@@ -21,7 +21,7 @@ function handleLoad() {
   return (
 
     <div onResize={handleLoad} style={{ borderRadius: isCircle ? "50%" : "0" }}>
-    <Popup modal trigger={<img src={props.path}  height={props.photo.height} width={ props.photo.width}/>}>
+    <Popup modal trigger={<img src={props.path}  height={props.height *20 } width={props.width *20 } />}>
     <MoreInfo
       _id={props._id}
       id={props.id}

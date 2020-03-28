@@ -6,7 +6,9 @@ const artSchema = new mongoose.Schema({
   id: Number,
   description: String,
   path: String,
-  size: String,
+  length: Number,
+  width: Number,
+  depth: Number,
   price: Number,
   sold: Boolean
 });

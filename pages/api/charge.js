@@ -1,4 +1,4 @@
-import Stripe from "stripe";
+npm run import Stripe from "stripe";
 import ArtDB from './Database/ArtDB';
 import Art from './Database/Art';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
